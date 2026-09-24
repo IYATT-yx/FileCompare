@@ -3,10 +3,10 @@ $startTime = Get-Date
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 python.exe -m pip install --upgrade pip
-pip install nuitka==4.2
+pip install nuitka==4.2.1
 pip install -r requirements.txt
 
-python .\savebuildtime.py
+Set-Content -Path ".\buildtime.py" -Value "buildTime = '$(Get-Date -Format 'yyyyMMdd_HHmmss')'" -Encoding UTF8
 
 $env:CL = "/utf-8"
 
